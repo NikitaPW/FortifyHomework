@@ -131,6 +131,7 @@ class Interface {
 document.addEventListener('DOMContentLoaded', Interface.displayContacts);
 
 document.querySelector('#form-list').addEventListener('submit', (e) => {
+    e.preventDefault();
     const name = document.querySelector('#name').value;
     const number = document.querySelector('#phone').value;
 
@@ -159,6 +160,7 @@ document.querySelector('#form-list').addEventListener('submit', (e) => {
 });
 
 document.querySelector('#table').addEventListener('click', (e) => {
+    e.preventDefault();
     e.stopPropagation();
     var btn = e.target.type == 'submit' ? e.target : e.target.parentElement;
     ContactLibrary.removeContact(btn.parentElement.previousElementSibling.textContent);
@@ -167,6 +169,7 @@ document.querySelector('#table').addEventListener('click', (e) => {
 
 
 document.querySelector('#search').addEventListener('keyup', function (e) {
+    e.preventDefault();
     var value = e.target.value;
     var data = ContactLibrary.searchTable(value);
     Interface.displayFilteredData(data);
